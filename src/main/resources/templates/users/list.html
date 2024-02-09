@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registration Requests</title>
+</head>
+<body>
+<h2>Registration Requests</h2>
+<table>
+    <thead>
+    <tr>
+        <th>User</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="request : ${requests}">
+        <td th:text="${request.user.username}"></td>
+        <td>
+            <form th:action="@{'/admin/approve/' + ${request.id}}" method="post">
+                <button type="submit">Approve</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

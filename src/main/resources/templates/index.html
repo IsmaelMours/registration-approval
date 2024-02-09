@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 50px;
+      background-color: #f4f4f4;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    .form-container {
+      display: inline-block;
+      text-align: left;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #registerForm {
+      display: none;
+    }
+
+    button#toggleButton {
+      background-color: #2196F3;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button#toggleButton:hover {
+      background-color: #0b7dda;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Welcome to our Website!</h2>
+
+<div id="loginForm" class="form-container">
+  <h3>Login</h3>
+  <form action="/login" method="post">
+    <label for="loginUsername">Username:</label>
+    <input type="text" id="loginUsername" name="username" required>
+    <br>
+    <label for="loginPassword">Password:</label>
+    <input type="password" id="loginPassword" name="password" required>
+    <br>
+    <button type="submit">Login</button>
+  </form>
+</div>
+
+<div id="registerForm" class="form-container">
+  <h3>Register</h3>
+  <form action="/registration/register" method="post">
+    <label for="registerUsername">Username:</label>
+    <input type="text" id="registerUsername" name="username" required>
+    <br>
+    <label for="registerPassword">Password:</label>
+    <input type="password" id="registerPassword" name="password" required>
+    <br>
+    <button type="submit">Register</button>
+  </form>
+</div>
+
+<button id="toggleButton" onclick="toggleForms()">Toggle Forms</button>
+
+<script>
+  function toggleForms() {
+    var loginForm = document.getElementById('loginForm');
+    var registerForm = document.getElementById('registerForm');
+
+    if (loginForm.style.display === 'none') {
+      loginForm.style.display = 'inline-block';
+      registerForm.style.display = 'none';
+    } else {
+      loginForm.style.display = 'none';
+      registerForm.style.display = 'inline-block';
+    }
+  }
+</script>
+
+</body>
+</html>
